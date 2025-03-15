@@ -7,10 +7,12 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+        colors: {
+          primaryBlue: "var(--primary-blue)",  // Bright Blue
+          accentPurple: "var(--accent-purple)", // Vibrant Purple
+          backgroundDark: "var(--background-dark)", // Dark Greyish Blue
+          textLight: "var(--text-light)", // White
+        },
     },
   },
   plugins: [],
