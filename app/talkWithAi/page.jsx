@@ -77,7 +77,7 @@ export default function TalkWithAi() {
       const chatHistory = messages.map((msg) => `User: ${msg.user}\nAI: ${msg.ai}`).join("\n");
       const prompt = `Previous conversations:\n${chatHistory}\n\nUser request: "${transcript}"`;
 
-      const res = await axios.post("http://localhost:5000/api/gemini", { text: prompt });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gemini`, { text: prompt });
       const aiResponse = res.data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
 
       // Update the AI response in the same message object

@@ -37,7 +37,7 @@ export default function Home() {
       - The response must contain **only the story** (no explanations).  
       `;
 
-      const res = await axios.post("http://localhost:5000/api/gemini", { text: prompt });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gemini`, { text: prompt });
       setResponseText(res.data.candidates?.[0]?.content?.parts?.[0]?.text || "No response");
     } catch (error) {
       console.error("Error:", error);

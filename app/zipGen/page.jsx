@@ -28,7 +28,7 @@ export default function Home() {
       const chatHistory = messages.map((msg) => `User: ${msg.user}\nAI: ${msg.ai}`).join("\n");
       const prompt = `Previous conversations:\n${chatHistory}\n\nUser request: "${userInput}"`;
 
-      const res = await axios.post("http://localhost:5000/api/gemini", { text: prompt });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gemini`, { text: prompt });
       const aiResponse = res.data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
 
       // Update chat history with new messages
