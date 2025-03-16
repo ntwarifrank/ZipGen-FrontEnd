@@ -1,6 +1,4 @@
-// pages/index.js
-
-"use client";  // Use client-side rendering
+"use client";
 import { useState, useEffect } from "react";
 import Layout from "../layout/page";
 

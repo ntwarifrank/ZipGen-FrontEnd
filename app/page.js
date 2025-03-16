@@ -1,13 +1,11 @@
-import { Nav } from "./navigation/page";
+import Nav from "./navigation/page";
 import Homepage from "./homepage/page";
-import background from "../public/background.jpg"
-import backgroundimage from "../public/backgroundimage1.jpg"
 import storyGeneration from "../public/storygeneration.jpg"
 import textToVideo from "../public/text-video.png"
 import textToImage from "../public/text-image.jpg"
 import Image from "next/image";
-import { Trading } from "./tradingschool/page";
-import { AboutUs } from "./aboutus/page";
+import Trading from "./tradingschool/page";
+import AboutUs from "./aboutus/page";
 import Footer from "./footer/page";
 
 export default function Home() {
