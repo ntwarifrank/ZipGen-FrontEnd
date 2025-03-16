@@ -1,7 +1,7 @@
-"use state"
+"use client"
 import Link from "next/link"
 
-export const Layout = ({children}) => {
+const Layout = ({children}) => {
   return (
     <div className="flex flex-row h-screen  bg-backgroundDark">
         <div className="w-[20%] ">
@@ -27,3 +27,5 @@ export const Layout = ({children}) => {
     </div>
   )
 }
+
+export default Layout;

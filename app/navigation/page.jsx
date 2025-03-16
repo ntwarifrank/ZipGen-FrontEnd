@@ -1,7 +1,6 @@
-
 import Link from 'next/link'
 
-export const Nav = () => {
+const Nav = () => {
   return (
     <div className='flex flex-row justify-between py-5 text-white'>
         <div className='font-extrabold text-3xl text-accentPurple'>
@@ -31,3 +30,5 @@ export const Nav = () => {
     </div>
   )
 }
+
+export default Nav;

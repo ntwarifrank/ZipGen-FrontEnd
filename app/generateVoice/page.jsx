@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { Layout } from "../layout/page";
 
-export default function Home() {
+function Home() {
   const [text, setText] = useState("");
   const [voices, setVoices] = useState([]);
   const [selectedVoice, setSelectedVoice] = useState(null);
@@ -129,3 +129,6 @@ export default function Home() {
     
   );
 }
+
+
+export default  Home;

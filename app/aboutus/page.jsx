@@ -1,11 +1,10 @@
-import React from 'react';
 import Image from 'next/image';
 import textToImage from "../../public/text-image.jpg"
 import generationStory from "../../public/generateStory.jpg"
 import summarizeContent from "../../public/sumarizeContent.jpg"
 import talkWithAi from "../../public/talkWithAi.jpg"
 
-export const AboutUs = () => {
+const AboutUs = () => {
   return (
     <div className="shadow-black shadow-lg pl-6 mb-5 rounded-lg overflow-hidden">
       <p className='font-bold text-xl'>About Us</p>
@@ -50,3 +49,6 @@ export const AboutUs = () => {
     </div>
   );
 };
+
+
+export default AboutUs

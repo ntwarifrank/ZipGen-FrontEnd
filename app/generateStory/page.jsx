@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Layout } from "../layout/page";
 import axios from "axios";
@@ -8,7 +7,7 @@ import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-export default function Home() {
+function Home() {
   const [responseText, setResponseText] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -125,3 +124,5 @@ export default function Home() {
     </Layout>
   );
 }
+
+export default Home;

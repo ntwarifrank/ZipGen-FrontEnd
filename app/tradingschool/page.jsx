@@ -1,14 +1,12 @@
 import Image from "next/image"
-import background from "../../public/background.jpg"
 import Link from "next/link"
-import storyGeneration from "../../public/storygeneration.jpg"
 import textToVideo from "../../public/text-video.png"
 import textToImage from "../../public/text-image.jpg"
 import generationStory from "../../public/generateStory.jpg"
 import summarizeContent from "../../public/sumarizeContent.jpg"
 import talkWithAi from "../../public/talkWithAi.jpg"
 
-export const Trading = () => {
+const Trading = () => {
     const TrendingService = [
         {
             image:generationStory,
@@ -69,3 +67,5 @@ export const Trading = () => {
     </div>
   )
 }
+
+export default Trading;

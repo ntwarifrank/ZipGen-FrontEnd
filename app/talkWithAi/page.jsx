@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import { Layout } from "../layout/page";
 import axios from "axios";
@@ -57,7 +56,7 @@ function SpeechRecognitionComponent({ onTranscript }) {
 }
 
 // Main Chat Component
-export default function TalkWithAi() {
+function TalkWithAi() {
   const [messages, setMessages] = useState([]); // Store chat history
   const chatBoxRef = useRef(null);
 
@@ -147,3 +146,5 @@ export default function TalkWithAi() {
     </Layout>
   );
 }
+
+export default talkWithAi

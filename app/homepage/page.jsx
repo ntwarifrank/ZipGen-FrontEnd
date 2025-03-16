@@ -1,9 +1,5 @@
-import React from 'react'
 import student from "../../public/ai2.png"
 import Image from 'next/image'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-
 
 function Homepage() {
   return (
