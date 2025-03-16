@@ -33,7 +33,8 @@ const Home = () => {
       - Generate a **well-structured, engaging story** using **simple English with medium-level verbs**.  
       - The first line must be the **title** (without any extra words).  
       - Ensure the story has a **clear beginning, middle, and end**.  
-      - The response must contain **only the story** (no explanations).  
+      - The response must contain **only the story** (no explanations). 
+      -and make sure the title it has been bolded and it in h2 and dont add anything that are not story part 
       `;
 
       const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gemini`, { text: prompt });
@@ -45,11 +46,13 @@ const Home = () => {
     setLoading(false);
   };
 
+  console.log(responseText)
+
   return (
     <Layout>
       <div className="flex flex-col w-full items-center p-6">
         {/* Generated Story Section */}
-        <div className="w-[80%] bg-gray-900 text-gray-300 p-5 rounded-lg shadow-md">
+        <div className="relative w-[80%] pb-[20%] h-[90vh] bg-gray-900 text-gray-300 p-5 rounded-lg shadow-md overflow-y-scroll">
           <h3 className="text-lg font-semibold text-accentPurple">Generated Story:</h3>
 
           {responseText && (
@@ -61,7 +64,7 @@ const Home = () => {
                     <h1 className="text-2xl font-bold my-4 text-accentPurple text-center" {...props} />
                   ),
                   h2: ({ node, ...props }) => (
-                    <h2 className="text-xl font-semibold my-3 text-accentPurple" {...props} />
+                    <h2 className="text-xl font-semibold my-3 text-accentPurple underline" {...props} />
                   ),
                   p: ({ node, ...props }) => (
                     <p className="text-gray-300 my-2 leading-relaxed" {...props} />
@@ -99,27 +102,29 @@ const Home = () => {
         </div>
 
         {/* User Input Section */}
-        <div className="w-[80%] bg-gray-900 p-5 rounded-lg mt-5">
+        <div className="absolute top-[67%] flex flex-row right-[8%] w-[63%] bg-gray-900 p-5 rounded-lg mt-5">
           <textarea
-            rows={4}
-            className="w-full rounded-lg text-gray-200 bg-gray-700 p-3 outline-none"
+            rows={3}
+            className="w-[90%] rounded-lg text-gray-200 bg-gray-700 p-3 outline-none"
             placeholder="Enter your story request here..."
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
           ></textarea>
-          {errors.message && <p className="text-red-500 mt-2">{errors.message}</p>}
-        </div>
-
-        {/* Generate Button */}
-        <div className="mt-4">
+          
+          <div className="mt-4 absolute w-[5%] top-[50%] right-[5%] ">
           <button
             onClick={sendRequest}
             className="bg-accentPurple px-4 py-2 rounded-lg text-white"
             disabled={loading}
           >
-            {loading ? "Generating..." : "Generate"}
+            {loading ? "Send..." : "Send"}
           </button>
         </div>
+          {errors.message && <p className="text-red-500 mt-2">{errors.message}</p>}
+        </div>
+
+        {/* Generate Button */}
+        
       </div>
     </Layout>
   );

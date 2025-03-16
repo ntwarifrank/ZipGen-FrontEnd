@@ -58,7 +58,7 @@ const Home = () => {
     <Layout>
       <div className="flex flex-col w-full items-center p-6">
         {/* Chat Box */}
-        <div className="w-[90%] bg-gray-900 text-gray-300 p-5 rounded-lg shadow-md min-h-[500px] max-h-[70vh] overflow-y-auto">
+        <div className="relative w-[95%] bg-gray-900 text-gray-300 p-5 rounded-lg shadow-md min-h-[500px] pb-[20%] max-h-[70vh] overflow-y-auto">
           {messages.map((msg, index) => (
             <div key={index} className="mb-4">
               {/* User Message (Left) */}
@@ -124,7 +124,7 @@ const Home = () => {
         </div>
 
         {/* User Input Section */}
-        <div className="w-[90%] bg-gray-900 p-5 rounded-lg mt-5">
+        <div className="absolute w-[60%] right-[13%] top-[60%] bg-gray-900 p-5 rounded-lg mt-5">
           <textarea
             rows={4}
             className="w-full rounded-lg text-gray-200 bg-gray-700 p-3 outline-none"
@@ -136,13 +136,13 @@ const Home = () => {
         </div>
 
         {/* Generate Button */}
-        <div className="mt-4">
+        <div className="mt-4 absolute top-[80%] right-[7%]">
           <button
             onClick={sendRequest}
             className="bg-accentPurple px-4 py-2 rounded-lg text-white"
             disabled={loading}
           >
-            {loading ? "Generating..." : "Generate"}
+            {loading ? "Send..." : "Send"}
           </button>
         </div>
       </div>
