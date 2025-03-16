@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Layout from "../layout/page";
 
-function Home() {
+const Home = () => {
   const [text, setText] = useState("");
   const [voices, setVoices] = useState([]);
   const [selectedVoice, setSelectedVoice] = useState(null);

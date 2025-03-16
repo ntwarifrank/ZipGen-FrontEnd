@@ -1,7 +1,7 @@
 import student from "../../public/ai2.png"
 import Image from 'next/image'
 
-function Homepage() {
+const  Homepage = () => {
   return (
     <div className='w-[90%] mx-auto flex flex-row'>
         <div className='w-[50%] px-10 pt-20'>

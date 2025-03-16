@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-function Home() {
+const Home = () => {
   const [messages, setMessages] = useState([]); // Store chat history
   const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);

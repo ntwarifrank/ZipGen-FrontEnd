@@ -10,7 +10,7 @@ import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import talkWithAi from "../../public/talkWithAi.jpg";
 
 // Speech Recognition Component
-function SpeechRecognitionComponent({ onTranscript }) {
+const  SpeechRecognitionComponent = ({ onTranscript }) => {
   const [recognition, setRecognition] = useState(null);
   const [error, setError] = useState("");
 
@@ -56,7 +56,7 @@ function SpeechRecognitionComponent({ onTranscript }) {
 }
 
 // Main Chat Component
-function TalkWithAi() {
+const TalkWithAi =  () => {
   const [messages, setMessages] = useState([]); // Store chat history
   const chatBoxRef = useRef(null);
 
