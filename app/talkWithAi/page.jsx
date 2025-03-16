@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { Layout } from "../layout/page";
+import Layout from "../layout/page";
 import axios from "axios";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";

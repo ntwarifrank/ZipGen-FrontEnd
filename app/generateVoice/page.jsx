@@ -2,7 +2,7 @@
 
 "use client";  // Use client-side rendering
 import { useState, useEffect } from "react";
-import { Layout } from "../layout/page";
+import Layout from "../layout/page";
 
 function Home() {
   const [text, setText] = useState("");

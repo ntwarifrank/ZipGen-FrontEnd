@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Layout } from "../layout/page";
+import Layout from "../layout/page";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
