@@ -147,4 +147,4 @@ const TalkWithAi =  () => {
   );
 }
 
-export default talkWithAi
+export default TalkWithAi
