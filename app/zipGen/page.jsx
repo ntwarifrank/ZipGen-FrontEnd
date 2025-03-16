@@ -27,14 +27,27 @@ const Home = () => {
       const chatHistory = messages.map((msg) => `User: ${msg.user}\nAI: ${msg.ai}`).join("\n");
       const prompt = `Previous conversations:\n${chatHistory}\n\nUser request: "${userInput}"`;
 
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gemini`, { text: prompt });
+      console.log("Prompt sent to backend:", prompt);
+
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/gemini`,
+        { text: prompt },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("AI Response received:", res.data); // Log AI response
+
       const aiResponse = res.data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
 
       // Update chat history with new messages
       setMessages([...messages, { user: userInput, ai: aiResponse }]);
       setUserInput(""); // Clear input field
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error fetching data:", error); // Log the actual error
       setErrors({ message: "Error fetching response" });
     }
 
@@ -61,11 +74,11 @@ const Home = () => {
                   remarkPlugins={[remarkGfm]}
                   components={{
                     h1: ({ node, ...props }) => (
-                        <h1 className="text-2xl font-bold my-4 text-accentPurple" {...props} />
-                      ),
+                      <h1 className="text-2xl font-bold my-4 text-accentPurple" {...props} />
+                    ),
                     h2: ({ node, ...props }) => (
-                        <h2 className="text-xl font-semibold my-3 text-accentPurple" {...props} />
-                      ),
+                      <h2 className="text-xl font-semibold my-3 text-accentPurple" {...props} />
+                    ),
                     p: ({ node, ...props }) => <p className="text-gray-300 my-2" {...props} />,
                     pre: ({ node, ...props }) => (
                       <div className="bg-gray-800 text-white p-4 rounded-md my-5" {...props} />
@@ -83,24 +96,24 @@ const Home = () => {
                       );
                     },
                     table: ({ node, ...props }) => (
-                        <table className="table-auto w-full border-collapse border border-gray-500 rounded-lg" {...props} />
-                      ),
+                      <table className="table-auto w-full border-collapse border border-gray-500 rounded-lg" {...props} />
+                    ),
                     th: ({ node, ...props }) => (
-                        <th className="px-4 py-2 border border-gray-600 bg-gray-700 text-white" {...props} />
-                      ),
+                      <th className="px-4 py-2 border border-gray-600 bg-gray-700 text-white" {...props} />
+                    ),
                     td: ({ node, ...props }) => (
-                        <td className="px-4 py-2 border border-gray-600 text-gray-300" {...props} />
+                      <td className="px-4 py-2 border border-gray-600 text-gray-300" {...props} />
                     ),
                     a: ({ href, children }) => (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-500 underline"
-                        >
-                          {children}
-                        </a>
-                      ),
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 underline"
+                      >
+                        {children}
+                      </a>
+                    ),
                   }}
                 >
                   {msg.ai}
@@ -135,6 +148,6 @@ const Home = () => {
       </div>
     </Layout>
   );
-}
+};
 
 export default Home;
